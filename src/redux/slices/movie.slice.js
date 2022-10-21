@@ -1,73 +1,47 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {moviesService} from "../../services";
-import {IMovie, IMovies} from "../../interfaces";
-import {AxiosError} from "axios";
-
-interface IState {
-    movies: Partial<IMovies>,
-    searchMovie: string,
-    selectedMovie: Partial<IMovie>,
-    error: string,
-}
 
 
-interface IGetAll {
-    page: number,
-    with_genres: string
-}
-
-interface IGetByQuery {
-    query: string,
-    page: number,
-    selectedGenre: string,
-}
-
-type IGetById = {
-    id: string
-}
-
-const initialState: IState = {
+const initialState = {
     movies: {},
     searchMovie: "",
-    selectedMovie: {},
-    error: ""
+    selectedMovie: null,
+    error: null,
+    loading: false
 };
 
-
-const getAll = createAsyncThunk<IMovies, IGetAll, { rejectValue?: string }>(
+const getAll = createAsyncThunk(
     "movieSlice/getAll",
-    async ({page, with_genres}, {rejectWithValue}) => {
+    async ({page, with_genres}, {rejectedWithValue}) => {
         try {
             const {data} = await moviesService.getAll(page, with_genres);
 
             return data;
         } catch (e) {
-            const err = e as AxiosError;
-            return rejectWithValue(err.response?.data);
+            return rejectedWithValue(e.response.data);
         }
     }
 );
 
-const getByQuery = createAsyncThunk<IMovies, IGetByQuery, { rejectValue?: string }>(
+const getByQuery = createAsyncThunk(
     "movieSlice/getByQuery",
-    async ({query, page, selectedGenre}, {rejectWithValue}) => {
+    async ({query, page, selectedGenre}, {rejectedWithValue}) => {
         try {
             const {data} = await moviesService.getByName(query, page);
 
             if (selectedGenre) {
-                const results = data.results.filter(movie => movie.genre_ids.includes(+selectedGenre));
+                const results = data.results.filter(movie => movie.genre_ids.includes(selectedGenre));
                 return {...data, results};
             }
 
             return data;
         } catch (e) {
-            const err = e as AxiosError;
-            return rejectWithValue(err.response?.data);
+            return rejectedWithValue(e.response.data);
         }
     }
 )
 
-const getById = createAsyncThunk<IMovie, IGetById, { rejectValue?: string }>(
+const getById = createAsyncThunk(
     "movieSlice/getById",
     async ({id}, {rejectWithValue}) => {
         try {
@@ -75,8 +49,7 @@ const getById = createAsyncThunk<IMovie, IGetById, { rejectValue?: string }>(
 
             return data
         } catch (e) {
-            const err = e as AxiosError;
-            return rejectWithValue(err.response?.data);
+            return rejectWithValue(e.response.data);
         }
     }
 )
@@ -93,15 +66,23 @@ const movieSlice = createSlice({
     extraReducers: builder => builder
         .addCase(getAll.fulfilled, (state, action) => {
             state.movies = action.payload;
+            state.loading = false;
+        })
+        .addCase(getById.pending, (state) => {
+            state.loading = true;
+            state.error = null;
         })
         .addCase(getByQuery.fulfilled, (state, action) => {
             state.movies = action.payload;
+            state.loading = false;
         })
         .addCase(getById.fulfilled, (state, action) => {
             state.selectedMovie = action.payload;
+            state.loading = false;
         })
         .addMatcher((action) => action.type.endsWith("rejected"), (state, action) => {
             state.error = action.payload;
+            state.loading = false;
         })
 });
 

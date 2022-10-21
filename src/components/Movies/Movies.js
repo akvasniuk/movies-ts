@@ -1,15 +1,8 @@
 import {Movie} from "../Movie/Movie";
 
 import "./Movies.module.css";
-import {IMovie} from "../../interfaces";
-import {FC} from "react";
 
-interface IProps {
-    movies: IMovie[],
-    error: string
-}
-
-const Movies: FC<IProps> = ({movies, error}) => {
+const Movies = ({movies, error}) => {
 
     return (
         <div>

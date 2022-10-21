@@ -1,8 +1,8 @@
-import {useAppSelector} from "./redux.hook";
+import {useSelector} from "react-redux";
 
 
 const useAppTheme = () => {
-    const {darkTheme} = useAppSelector(state => state.themeReducer);
+    const {darkTheme} = useSelector(state => state.themeReducer);
 
     return {
         background: darkTheme ? "rgba(0,0,0,0.83)" : '',

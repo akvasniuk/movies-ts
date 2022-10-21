@@ -1,11 +1,12 @@
+import {useSelector} from "react-redux";
 import css from "./MovieDetails.module.css";
 import {imageURL} from "../../configs";
 import {StarsRating, GenreBadge, Company} from "../../components";
-import {useAppSelector, useAppTheme} from "../../hooks";
+import {useAppTheme} from "../../hooks";
 import {useNavigate} from "react-router-dom";
 
 const MovieDetails = () => {
-    const {selectedMovie} = useAppSelector(state => state.movieReducer);
+    const {selectedMovie} = useSelector(state => state.movieReducer);
 
     const theme = useAppTheme();
     const navigate = useNavigate();
@@ -44,7 +45,7 @@ const MovieDetails = () => {
 
                 <div className={css.description}>
                     <div className={css.column1}>
-                        {genres && <GenreBadge receivedGenres={genres.map(genre => genre.id)}/>}
+                        <GenreBadge receivedGenres={genres.map(genre => genre.id)}/>
                         <p>
                             Release data {release_date}
                         </p>
@@ -63,7 +64,7 @@ const MovieDetails = () => {
                 <h4 className={css.center}>Companies</h4>
                 <div className={css.companies}>
                     {
-                        production_companies?.map(company =>
+                        production_companies.map(company =>
                             <Company key={company.id} name={company.name} logo_path={company.logo_path}/>)
                     }
                 </div>

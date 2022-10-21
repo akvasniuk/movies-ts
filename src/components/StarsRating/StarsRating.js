@@ -1,11 +1,6 @@
 import {Rating, Stack} from "@mui/material";
-import {FC} from "react";
 
-interface IProps {
-    vote_average?: number
-}
-
-const StarsRating: FC<IProps> = ({vote_average}) => {
+const StarsRating = ({vote_average}) => {
     return (
         <>
             <Stack spacing={1}>

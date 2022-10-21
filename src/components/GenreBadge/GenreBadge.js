@@ -1,17 +1,13 @@
-import {FC, useEffect} from "react";
+import {useEffect} from "react";
 
+import {useDispatch, useSelector} from "react-redux";
 import {genreActions} from "../../redux/slices";
 
 import css from "./GenreBadge.module.css";
-import {useAppDispatch, useAppSelector} from "../../hooks";
 
-interface IProps {
-    receivedGenres: number[]
-}
-
-const GenreBadge: FC<IProps> = ({receivedGenres}) => {
-    const dispatch = useAppDispatch();
-    const {genres, error} = useAppSelector(state => state.genreReducer);
+const GenreBadge = ({receivedGenres}) => {
+    const dispatch = useDispatch();
+    const {genres, error} = useSelector(state => state.genreReducer);
 
     useEffect(() => {
         dispatch(genreActions.getAll());

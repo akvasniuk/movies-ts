@@ -1,30 +1,21 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {genreService} from "../../services";
-import {IGenre} from "../../interfaces";
-import {AxiosError} from "axios";
 
-interface IState {
-    genres: IGenre[],
-    selectedGenre: string,
-    error: string | null
-}
-
-const initialState: IState = {
+const initialState = {
     genres: [],
     selectedGenre: "",
     error: null
 }
 
-const getAll = createAsyncThunk<IGenre[], void, { rejectValue?: string }>(
+const getAll = createAsyncThunk(
     "genreSlice/getAll",
     async (_, {rejectWithValue}) => {
         try {
             const {data} = await genreService.getAll();
 
-            return data.genres;
+            return data
         } catch (e) {
-            const err = e as AxiosError;
-            return rejectWithValue(err.response?.data);
+            return rejectWithValue(e.response.data);
         }
     }
 )
@@ -39,7 +30,7 @@ const genreSlice = createSlice({
     },
     extraReducers: builder =>
         builder.addCase(getAll.fulfilled, (state, action) => {
-            state.genres = action.payload;
+            state.genres = action.payload.genres;
         })
             .addMatcher((action) => action.type.endsWith("rejected"), (state, action) => {
                 state.error = action.payload;

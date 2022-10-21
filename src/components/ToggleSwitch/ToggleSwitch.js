@@ -1,10 +1,10 @@
 import {FormControlLabel, FormGroup, Switch} from "@mui/material";
+import {useDispatch, useSelector} from "react-redux";
 import {themeAction} from "../../redux/slices";
-import {useAppDispatch, useAppSelector} from "../../hooks";
 
 const ToggleSwitch = () => {
-    const dispatch = useAppDispatch();
-    const {darkTheme} = useAppSelector(state => state.themeReducer);
+    const dispatch = useDispatch();
+    const {darkTheme} = useSelector(state => state.themeReducer);
 
     return (
         <div>

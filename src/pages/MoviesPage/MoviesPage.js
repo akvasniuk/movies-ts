@@ -4,24 +4,24 @@ import {
     Stack
 } from "@mui/material";
 import {Link as NavLink, useNavigate, useLocation} from "react-router-dom";
-import {useAppDispatch, useAppSelector} from "../../hooks";
+import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 
 import {movieActions} from "../../redux/slices";
 import {Movies} from "../../components";
 
 const MoviesPage = () => {
-    const dispatch = useAppDispatch();
+    const dispatch = useDispatch();
     const {movies, error, searchMovie} =
-        useAppSelector(state => state.movieReducer);
-    const {selectedGenre} = useAppSelector(state => state.genreReducer);
+        useSelector(state => state.movieReducer);
+    const {selectedGenre} = useSelector(state => state.genreReducer);
 
     const location = useLocation();
     const navigation = useNavigate();
 
-    const [page, setPage] = useState<number>(
-        parseInt(location.search?.split("=")[1] || "1"));
-    const [pageQty, setPageQty] = useState<number>(1);
+    const [page, setPage] = useState(
+        parseInt(location.search?.split("=")[1] || 1));
+    const [pageQty, setPageQty] = useState(1);
 
     useEffect(() => {
         if (searchMovie) {
@@ -30,12 +30,13 @@ const MoviesPage = () => {
             dispatch(movieActions.getAll({page, with_genres: selectedGenre}));
         }
 
-        setPageQty(movies.total_pages || 1);
+        setPageQty(movies.total_pages);
 
-        if (movies.total_pages && movies.total_pages < page) {
+        if (movies.total_pages < page) {
             setPage(1);
             navigation("/", {replace: true})
         }
+
     }, [searchMovie, selectedGenre, page, dispatch, location,
         navigation, movies.total_pages]);
 

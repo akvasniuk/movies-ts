@@ -1,13 +1,13 @@
+import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {genreActions} from "../../redux/slices";
-import {FormControl, MenuItem, InputLabel, Select, SelectChangeEvent} from "@mui/material";
-import {useAppDispatch, useAppSelector} from "../../hooks";
+import {FormControl, MenuItem, InputLabel, Select} from "@mui/material";
 
 const GenresSelect = () => {
-    const dispatch = useAppDispatch();
-    const {genres, selectedGenre} = useAppSelector(state => state.genreReducer);
+    const dispatch = useDispatch();
+    const {genres, selectedGenre} = useSelector(state => state.genreReducer);
 
-    const handleChange = (event: SelectChangeEvent) => {
+    const handleChange = (event) => {
         dispatch(genreActions.getSelectedGenre(event.target.value));
     };
 
@@ -22,7 +22,7 @@ const GenresSelect = () => {
             }}>
                 <InputLabel>Genre</InputLabel>
                 <Select
-                    value={selectedGenre || ''}
+                    value={selectedGenre || ""}
                     label="Genre"
                     autoWidth
                     onChange={handleChange}
