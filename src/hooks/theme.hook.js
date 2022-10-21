@@ -1,6 +1,5 @@
 import {useSelector} from "react-redux";
 
-
 const useAppTheme = () => {
     const {darkTheme} = useSelector(state => state.themeReducer);
 

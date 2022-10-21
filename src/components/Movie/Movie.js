@@ -1,7 +1,8 @@
-import css from "./Movie.module.css";
-import {PosterPreview, GenreBadge} from "../../components";
 import {useNavigate} from "react-router-dom";
+
+import {PosterPreview, GenreBadge} from "../../components";
 import {useAppTheme} from "../../hooks";
+import css from "./Movie.module.css";
 
 const Movie = ({movie}) => {
     const {

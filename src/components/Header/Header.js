@@ -1,12 +1,12 @@
-import css from "./Header.module.css"
 import {TextField} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
 import {movieActions} from "../../redux/slices";
-import {ResetButton, GenresSelect, UserInfo, ToggleSwitch} from "../../components";
 import {useNavigate} from "react-router-dom";
-import {useAppTheme} from "../../hooks";
-import logoImage from "../../assets/logo.png";
 
+import {ResetButton, GenresSelect, UserInfo, ToggleSwitch} from "../../components";
+import {useAppTheme} from "../../hooks";
+import css from "./Header.module.css"
+import logoImage from "../../assets/logo.png";
 
 const Header = () => {
     const dispatch = useDispatch();

@@ -1,8 +1,8 @@
 import {useEffect} from "react";
-
-import {useParams} from "react-router-dom";
-import {MovieDetails} from "../../components";
 import {useDispatch, useSelector} from "react-redux";
+import {useParams} from "react-router-dom";
+
+import {MovieDetails} from "../../components";
 import {movieActions} from "../../redux/slices";
 
 const MoviePage = () => {

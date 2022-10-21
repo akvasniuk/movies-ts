@@ -2,7 +2,6 @@ import {useEffect} from "react";
 
 import {useDispatch, useSelector} from "react-redux";
 import {genreActions} from "../../redux/slices";
-
 import css from "./GenreBadge.module.css";
 
 const GenreBadge = ({receivedGenres}) => {

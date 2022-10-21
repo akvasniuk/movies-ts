@@ -1,5 +1,6 @@
 import {FormControlLabel, FormGroup, Switch} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
+
 import {themeAction} from "../../redux/slices";
 
 const ToggleSwitch = () => {

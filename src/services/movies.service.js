@@ -2,7 +2,6 @@ import {axiosService} from "./axios.service";
 
 import {urls} from "../configs";
 
-
 const moviesService = {
     getAll: (page, with_genres) =>
         axiosService.get(urls.movies, {params: {page, with_genres}}),

@@ -1,5 +1,5 @@
-import css from "./PosterPreview.module.css";
 import {imageURL} from "../../configs";
+import css from "./PosterPreview.module.css";
 import notFoundImage from "../../assets/not_found.jpg";
 
 const PosterPreview = ({backdrop_path, title}) => {

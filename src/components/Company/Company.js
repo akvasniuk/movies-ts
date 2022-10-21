@@ -1,6 +1,6 @@
-import css from "./Company.module.css";
-
 import {PosterPreview} from "../../components";
+
+import css from "./Company.module.css";
 
 const Company = ({logo_path, name}) => {
     return (

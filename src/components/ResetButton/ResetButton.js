@@ -1,4 +1,5 @@
 import {useDispatch} from "react-redux";
+
 import {genreActions, movieActions} from "../../redux/slices";
 import css from "./ResetButton.module.css";
 

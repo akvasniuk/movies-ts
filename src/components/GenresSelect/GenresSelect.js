@@ -1,7 +1,8 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {genreActions} from "../../redux/slices";
 import {FormControl, MenuItem, InputLabel, Select} from "@mui/material";
+
+import {genreActions} from "../../redux/slices";
 
 const GenresSelect = () => {
     const dispatch = useDispatch();
