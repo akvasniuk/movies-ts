@@ -122,5 +122,4 @@ span, a {
     position: fixed;
     border-radius: 50%;
     z-index: 999;
-    animation: rotation 10s infinite linear;
 }
