@@ -3,7 +3,6 @@ import {AxiosRes, axiosService} from "./axios.service";
 import {urls} from "../configs";
 import {IMovie, IMovies} from "../interfaces";
 
-
 const moviesService = {
     getAll: (page: number, with_genres: string): AxiosRes<IMovies> =>
         axiosService.get(urls.movies, {params: {page, with_genres}}),

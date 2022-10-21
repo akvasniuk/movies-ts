@@ -4,7 +4,6 @@ import {ThemeProvider} from "@mui/material";
 import {MainLayout} from "./layouts/MainLayout";
 import {MoviePage, MoviesPage, NotFoundPage} from "./pages";
 import {useAppSelector, useAppTheme} from "./hooks";
-
 import {darkTheme, lightTheme} from "./constants";
 
 function App() {

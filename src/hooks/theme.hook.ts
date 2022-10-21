@@ -1,6 +1,5 @@
 import {useAppSelector} from "./redux.hook";
 
-
 const useAppTheme = () => {
     const {darkTheme} = useAppSelector(state => state.themeReducer);
 

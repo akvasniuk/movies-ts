@@ -4,7 +4,6 @@ import {genreActions} from "../../redux/slices";
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import css from "./GenreBadge.module.css";
 
-
 interface IProps {
     receivedGenres: number[]
 }

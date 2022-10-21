@@ -4,9 +4,9 @@ import {
     Stack
 } from "@mui/material";
 import {Link as NavLink, useNavigate, useLocation} from "react-router-dom";
-import {useAppDispatch, useAppSelector} from "../../hooks";
 import {useEffect, useState} from "react";
 
+import {useAppDispatch, useAppSelector} from "../../hooks";
 import {movieActions} from "../../redux/slices";
 import {Movies} from "../../components";
 
