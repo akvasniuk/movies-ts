@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+}
+
+.header {
+    background: url("https://p.w3layouts.com/demos/pinball/web/images/border.png") repeat-x 0 0 #FFF;
+    padding: 1.5em 0 1.2em;
+    width: 100%;
+    top: 0;
+}
+
+.head{
+    min-height: 97px;
+    padding: 25px 60px 17px;
+    position: relative;
+    background: #ffffff;
+    box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.15);
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 40px;
+}
+
+.logo{
+    width: fit-content;
+}
+
+.logo img{
+    display:inline-block;
+}
+
+.wrap{
+    width: 95%;
+    margin: 0 auto;
+}
+
+input{
+    font-family: inherit;
+    line-height:inherit;
+    color:#2e3750;
+    min-width:12em;
+    height: 40px;
+    width: 390px;
+    border: 1px solid green;
+}

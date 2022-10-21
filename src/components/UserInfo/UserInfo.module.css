@@ -1,0 +1,22 @@
+.userinfo {
+    width: 15%;
+}
+
+.user {
+    display: flex;
+    column-gap: 10px;
+}
+
+.user > img {
+    border-radius: 50%;
+}
+
+.user div {
+    margin-top: 45%;
+}
+
+.user div:hover {
+    color: #B9CB41;
+    cursor: pointer;
+}
+
