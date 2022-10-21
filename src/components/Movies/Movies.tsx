@@ -1,8 +1,8 @@
-import {Movie} from "../Movie/Movie";
-
-import "./Movies.module.css";
-import {IMovie} from "../../interfaces";
 import {FC} from "react";
+
+import {Movie} from "../Movie/Movie";
+import {IMovie} from "../../interfaces";
+import "./Movies.module.css";
 
 interface IProps {
     movies: IMovie[],

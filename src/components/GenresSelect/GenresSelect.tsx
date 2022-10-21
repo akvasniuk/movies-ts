@@ -1,6 +1,7 @@
 import {useEffect} from "react";
-import {genreActions} from "../../redux/slices";
 import {FormControl, MenuItem, InputLabel, Select, SelectChangeEvent} from "@mui/material";
+
+import {genreActions} from "../../redux/slices";
 import {useAppDispatch, useAppSelector} from "../../hooks";
 
 const GenresSelect = () => {

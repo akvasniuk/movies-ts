@@ -1,6 +1,6 @@
 import {genreActions, movieActions} from "../../redux/slices";
-import css from "./ResetButton.module.css";
 import {useAppDispatch} from "../../hooks";
+import css from "./ResetButton.module.css";
 
 const ResetButton = () => {
     const dispatch = useAppDispatch();

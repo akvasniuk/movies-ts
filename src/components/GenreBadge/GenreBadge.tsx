@@ -1,9 +1,9 @@
 import {FC, useEffect} from "react";
 
 import {genreActions} from "../../redux/slices";
-
-import css from "./GenreBadge.module.css";
 import {useAppDispatch, useAppSelector} from "../../hooks";
+import css from "./GenreBadge.module.css";
+
 
 interface IProps {
     receivedGenres: number[]

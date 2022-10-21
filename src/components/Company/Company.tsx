@@ -1,7 +1,7 @@
-import css from "./Company.module.css";
+import {FC} from "react";
 
 import {PosterPreview} from "../../components";
-import {FC} from "react";
+import css from "./Company.module.css";
 
 interface IProps {
     logo_path: string,

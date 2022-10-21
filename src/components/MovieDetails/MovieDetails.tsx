@@ -1,8 +1,9 @@
-import css from "./MovieDetails.module.css";
+import {useNavigate} from "react-router-dom";
+
 import {imageURL} from "../../configs";
 import {StarsRating, GenreBadge, Company} from "../../components";
 import {useAppSelector, useAppTheme} from "../../hooks";
-import {useNavigate} from "react-router-dom";
+import css from "./MovieDetails.module.css";
 
 const MovieDetails = () => {
     const {selectedMovie} = useAppSelector(state => state.movieReducer);

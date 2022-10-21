@@ -1,7 +1,8 @@
-import css from "./PosterPreview.module.css";
-import {imageURL} from "../../configs";
-import notFoundImage from "../../assets/not_found.jpg";
 import {FC} from "react";
+
+import {imageURL} from "../../configs";
+import css from "./PosterPreview.module.css";
+import notFoundImage from "../../assets/not_found.jpg";
 
 interface IProps {
     backdrop_path: string,

@@ -1,9 +1,10 @@
-import css from "./Movie.module.css";
-import {PosterPreview, GenreBadge} from "../../components";
 import {useNavigate} from "react-router-dom";
+import {FC} from "react";
+
+import {PosterPreview, GenreBadge} from "../../components";
 import {useAppTheme} from "../../hooks";
 import {IMovie} from "../../interfaces";
-import {FC} from "react";
+import css from "./Movie.module.css";
 
 interface IProps {
     movie: IMovie

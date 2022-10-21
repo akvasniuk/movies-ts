@@ -1,4 +1,5 @@
 import {FormControlLabel, FormGroup, Switch} from "@mui/material";
+
 import {themeAction} from "../../redux/slices";
 import {useAppDispatch, useAppSelector} from "../../hooks";
 

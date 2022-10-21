@@ -1,7 +1,8 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {AxiosError} from "axios";
+
 import {moviesService} from "../../services";
 import {IMovie, IMovies} from "../../interfaces";
-import {AxiosError} from "axios";
 
 interface IState {
     movies: Partial<IMovies>,
